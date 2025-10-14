@@ -1,7 +1,7 @@
 from typing import Sequence
 
 from django.contrib.admin import register
-from models import Category
+from .models import Category
 from unfold.admin import ModelAdmin
 
 

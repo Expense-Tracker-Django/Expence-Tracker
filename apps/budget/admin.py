@@ -1,7 +1,7 @@
 from typing import Sequence
 
 from django.contrib.admin import register
-from models import Budget
+from .models import Budget
 from unfold.admin import ModelAdmin
 
 

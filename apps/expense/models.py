@@ -1,9 +1,15 @@
-from category.models import Category
 from django.contrib.auth.models import User
-from django.db.models import (CASCADE, PROTECT, DateField, DecimalField,
-                              ForeignKey, TextField)
+from django.db.models import (
+    CASCADE,
+    PROTECT,
+    DateField,
+    DecimalField,
+    ForeignKey,
+    TextField,
+)
 
-from abstracts.models import AbstractBaseModel
+from apps.abstracts.models import AbstractBaseModel
+from apps.category.models import Category
 
 
 class Expense(AbstractBaseModel):

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.models import CASCADE, CharField, ForeignKey
 
-from abstracts.models import AbstractBaseModel
+from apps.abstracts.models import AbstractBaseModel
 
 
 class Category(AbstractBaseModel):
