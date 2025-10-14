@@ -23,7 +23,7 @@ class AbstractBaseModel(Model):
     class Meta:
         abstract = True
 
-    def delete(self, *args: tuple[Any, ...], **kwargs: dict[Any, Any]) -> None:
+    def delete(self, *args: tuple[Any, ...], **kwargs: dict[Any, Any]) -> None:  # type: ignore
         """
         Soft delete the model instance by setting the deleted_at field to the current timestamp.
         """
