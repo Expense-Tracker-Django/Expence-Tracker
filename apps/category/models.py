@@ -1,11 +1,9 @@
 from django.contrib.auth.models import User
-from django.db import models
 from django.db.models import CASCADE, CharField, ForeignKey
 
 from abstracts.models import AbstractBaseModel
 
 
-# Create your models here.
 class Category(AbstractBaseModel):
     """
     Model representing an expense category.
