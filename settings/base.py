@@ -17,6 +17,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Apps
 #
 DJANGO_AND_THIRD_PARTY_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.constance",
+    "unfold.contrib.import_export",
+    "unfold.contrib.guardian",
+    "unfold.contrib.simple_history",
+    "unfold.contrib.forms",
+    "unfold.contrib.inlines",
+    
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -25,7 +34,10 @@ DJANGO_AND_THIRD_PARTY_APPS = [
     "django.contrib.staticfiles",
 ]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    "abstracts.apps.AbstractsConfig", 
+    "expence_traker.apps.ExpenceTrakerConfig",
+]
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 
 
