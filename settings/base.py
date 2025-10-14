@@ -39,6 +39,7 @@ PROJECT_APPS = [
     "apps.budget",
     "apps.category",
     "apps.expense",
+    "apps.data_generator",
 ]
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 

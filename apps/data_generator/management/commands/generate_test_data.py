@@ -4,11 +4,10 @@ from decimal import Decimal
 
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
-from django.utils import timezone
 
-from apps.budgets.models import Budget
-from apps.categories.models import Category
-from apps.expenses.models import Expense
+from apps.budget.models import Budget
+from apps.category.models import Category
+from apps.expense.models import Expense
 
 
 class Command(BaseCommand):
