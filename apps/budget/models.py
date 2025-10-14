@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.db.models import CASCADE, DecimalField, ForeignKey, DateField
+from django.db.models import CASCADE, DateField, DecimalField, ForeignKey
 
 from abstracts.models import AbstractBaseModel
 
@@ -21,4 +21,4 @@ class Budget(AbstractBaseModel):
     month = DateField()
 
     def __str__(self) -> str:
-        return f"{self.users} - {self.monthly_limit} for {self.month.strftime('%B %Y')}" # type: ignore
+        return f"{self.users} - {self.monthly_limit} for {self.month.strftime('%B %Y')}"  # type: ignore

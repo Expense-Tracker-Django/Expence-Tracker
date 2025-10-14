@@ -35,8 +35,10 @@ DJANGO_AND_THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "abstracts.apps.AbstractsConfig", 
-    "expence_traker.apps.ExpenceTrakerConfig",
+    "apps.abstracts",
+    "apps.budget",
+    "apps.category",
+    "apps.expense",
 ]
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 
