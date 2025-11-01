@@ -12,19 +12,19 @@ class ExpenseAdmin(ModelAdmin):
     """
 
     list_display: Sequence[str] = (
-        "descrption",
-        "users",
-        "categories",
+        "description",
+        "user",
+        "category",
         "amount",
         "date",
         "created_at",
         "updated_at",
         "deleted_at",
     )
-    search_fields: Sequence[str] = ("descrption", "users__username", "categories__name")
+    search_fields: Sequence[str] = ("description", "users__username", "categories__name")
     list_filter: Sequence[str] = (
         "date",
-        "categories",
+        "category",
         "created_at",
         "updated_at",
         "deleted_at",
@@ -32,4 +32,4 @@ class ExpenseAdmin(ModelAdmin):
     ordering: Sequence[str] = ("-date",)
 
     readonly_fields: Sequence[str] = ("created_at", "updated_at", "deleted_at")
-    autocomplete_fields: Sequence[str] = ("users", "categories")
+    autocomplete_fields: Sequence[str] = ("user", "category")

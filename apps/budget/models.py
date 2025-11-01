@@ -9,7 +9,7 @@ class Budget(AbstractBaseModel):
     Model representing a budget for a specific category and user.
     """
 
-    users = ForeignKey(
+    user = ForeignKey(
         to=User,
         on_delete=CASCADE,
         related_name="budgets",

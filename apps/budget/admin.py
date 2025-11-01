@@ -12,7 +12,7 @@ class BudgetAdmin(ModelAdmin):
     """
 
     list_display: Sequence[str] = (
-        "users",
+        "user",
         "monthly_limit",
         "month",
         "created_at",
@@ -24,4 +24,4 @@ class BudgetAdmin(ModelAdmin):
     ordering: Sequence[str] = ("-month",)
 
     readonly_fields: Sequence[str] = ("created_at", "updated_at", "deleted_at")
-    autocomplete_fields: Sequence[str] = ("users",)
+    autocomplete_fields: Sequence[str] = ("user",)
