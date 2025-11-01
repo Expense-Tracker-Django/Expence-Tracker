@@ -17,16 +17,16 @@ class Expense(AbstractBaseModel):
     Model representing an expense entry.
     """
 
-    descrption = TextField(
+    description = TextField(
         blank=True,
         null="",
     )
-    users = ForeignKey(
+    user = ForeignKey(
         to=User,
         on_delete=CASCADE,
         related_name="expenses",
     )
-    categories = ForeignKey(
+    category = ForeignKey(
         to=Category,
         on_delete=PROTECT,
         related_name="expenses",

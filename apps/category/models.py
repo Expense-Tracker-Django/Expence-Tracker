@@ -15,7 +15,7 @@ class Category(AbstractBaseModel):
         max_length=NAME_MAX_LENGTH,
         unique=True,
     )
-    users = ForeignKey(
+    user = ForeignKey(
         to=User,
         on_delete=CASCADE,
         related_name="categories",

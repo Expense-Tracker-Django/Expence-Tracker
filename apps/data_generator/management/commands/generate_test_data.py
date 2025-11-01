@@ -25,26 +25,9 @@ class Command(BaseCommand):
         # Создаём тестовых пользователей
         users = []
         usernames = [
-            "alice",
-            "bob",
-            "charlie",
-            "dave",
-            "eve",
-            "frank",
-            "grace",
-            "heidi",
-            "ivan",
-            "judy",
-            "mallory",
-            "niaj",
-            "oscar",
-            "peggy",
-            "trent",
-            "victor",
-            "walter",
-            "xavier",
-            "yvonne",
-            "zara",
+            "alice", "bob", "charlie", "dave", "eve", "frank", "grace", "heidi",
+            "ivan", "judy", "mallory", "niaj", "oscar", "peggy", "trent",
+            "victor", "walter", "xavier", "yvonne", "zara",
         ]
         for name in usernames:
             user = User.objects.create_user(
@@ -59,7 +42,7 @@ class Command(BaseCommand):
         for user in users:
             for cat_name in category_names:
                 cat = Category.objects.create(
-                    name=f"{cat_name} ({user.username})", users=user
+                    name=f"{cat_name} ({user.username})", user=user
                 )
                 categories.append(cat)
         self.stdout.write(
@@ -69,7 +52,7 @@ class Command(BaseCommand):
         # Создаём расходы
         expenses = []
         for user in users:
-            user_cats = Category.objects.filter(users=user)
+            user_cats = Category.objects.filter(user=user)
             for _ in range(15):
                 cat = random.choice(user_cats)
                 amount = Decimal(random.uniform(5, 150)).quantize(Decimal("0.01"))
@@ -77,9 +60,9 @@ class Command(BaseCommand):
                 exp_date = date.today() - timedelta(days=days_ago)
 
                 expense = Expense.objects.create(
-                    descrption=f"Expense for {cat.name}",
-                    users=user,
-                    categories=cat,
+                    description=f"Expense for {cat.name}",
+                    user=user,
+                    category=cat,
                     amount=amount,
                     date=exp_date,
                 )
@@ -95,7 +78,7 @@ class Command(BaseCommand):
                 )
                 limit = Decimal(random.uniform(500, 2000)).quantize(Decimal("0.01"))
                 budget = Budget.objects.create(
-                    users=user, monthly_limit=limit, month=month_date
+                    user=user, monthly_limit=limit, month=month_date
                 )
                 budgets.append(budget)
         self.stdout.write(self.style.SUCCESS(f"✅ Created {len(budgets)} budgets."))

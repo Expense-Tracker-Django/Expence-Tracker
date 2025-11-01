@@ -13,7 +13,7 @@ class CategoryAdmin(ModelAdmin):
 
     list_display: Sequence[str] = (
         "name",
-        "users",
+        "user",
         "created_at",
         "updated_at",
         "deleted_at",
@@ -23,4 +23,4 @@ class CategoryAdmin(ModelAdmin):
     ordering: Sequence[str] = ("name",)
 
     readonly_fields: Sequence[str] = ("created_at", "updated_at", "deleted_at")
-    autocomplete_fields: Sequence[str] = ("users",)
+    autocomplete_fields: Sequence[str] = ("user",)
