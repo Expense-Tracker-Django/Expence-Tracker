@@ -11,7 +11,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 WSGI_APPLICATION = "settings.wsgi.application"
 ROOT_URLCONF = "settings.urls"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
+AUTH_USER_MODEL = "auths.CustomUser"
 
 # ----------------------------------------------------------------
 # Apps
@@ -39,6 +39,7 @@ PROJECT_APPS = [
     "apps.category",
     "apps.expense",
     "apps.data_generator",
+    "apps.auths",
 ]
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 

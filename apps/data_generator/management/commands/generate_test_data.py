@@ -2,12 +2,12 @@ import random
 from datetime import date, timedelta
 from decimal import Decimal
 
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
 from apps.budget.models import Budget
 from apps.category.models import Category
 from apps.expense.models import Expense
+from apps.auths.models import CustomUser as User
 
 
 class Command(BaseCommand):
