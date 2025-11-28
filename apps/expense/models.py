@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+# Django modules
 from django.db.models import (
     CASCADE,
     PROTECT,
@@ -8,6 +8,8 @@ from django.db.models import (
     TextField,
 )
 
+# Project modules
+from apps.auths.models import CustomUser
 from apps.abstracts.models import AbstractBaseModel
 from apps.category.models import Category
 
@@ -22,7 +24,7 @@ class Expense(AbstractBaseModel):
         null="",
     )
     user = ForeignKey(
-        to=User,
+        to=CustomUser,
         on_delete=CASCADE,
         related_name="expenses",
     )

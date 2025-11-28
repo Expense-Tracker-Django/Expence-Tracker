@@ -1,7 +1,8 @@
-from django.contrib.auth.models import User
+# Django modules
 from django.db.models import CASCADE, CharField, ForeignKey
 
 from apps.abstracts.models import AbstractBaseModel
+from apps.auths.models import CustomUser
 
 
 class Category(AbstractBaseModel):
@@ -16,7 +17,7 @@ class Category(AbstractBaseModel):
         unique=True,
     )
     user = ForeignKey(
-        to=User,
+        to=CustomUser,
         on_delete=CASCADE,
         related_name="categories",
     )
