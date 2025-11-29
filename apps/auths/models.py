@@ -89,7 +89,7 @@ class CustomUser(AbstractBaseModel, AbstractBaseUser, PermissionsMixin):
 
     MAX_EMAIL_LENGTH = 255
     MAX_NAME_LENGTH = 150
-    PASSWORD_MIN_LENGTH = 256
+    MAX_PASSWORD_LENGTH = 256
     MAX_CITY_LENGTH = 100
 
     email = EmailField(
@@ -121,7 +121,7 @@ class CustomUser(AbstractBaseModel, AbstractBaseUser, PermissionsMixin):
         verbose_name="Birth Date",
     )
     password = CharField(
-        max_length=PASSWORD_MIN_LENGTH,
+        max_length=MAX_PASSWORD_LENGTH,
         validators=[validate_password],
         verbose_name="Password",
         help_text="Required. Enter a secure password.",

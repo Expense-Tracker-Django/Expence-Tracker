@@ -31,15 +31,20 @@ DJANGO_AND_THIRD_PARTY_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'drf_spectacular',
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 PROJECT_APPS = [
-    "apps.abstracts",
-    "apps.budget",
-    "apps.category",
-    "apps.expense",
-    "apps.data_generator",
-    "apps.auths",
+    "apps.abstracts.apps.AbstractsConfig",
+    "apps.budget.apps.BudgetConfig",
+    "apps.category.apps.CategoryConfig",
+    "apps.expense.apps.ExpenseConfig",
+    "apps.data_generator.apps.DataGeneratorConfig",
+    "apps.auths.apps.AuthsConfig",
 ]
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 
@@ -55,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 TEMPLATES = [
     {
