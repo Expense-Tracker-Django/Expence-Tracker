@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+# Django modules
 from django.db.models import (
     CASCADE,
     PROTECT,
@@ -8,6 +8,8 @@ from django.db.models import (
     TextField,
 )
 
+# Project modules
+from apps.auths.models import CustomUser
 from apps.abstracts.models import AbstractBaseModel
 from apps.category.models import Category
 
@@ -17,16 +19,16 @@ class Expense(AbstractBaseModel):
     Model representing an expense entry.
     """
 
-    descrption = TextField(
+    description = TextField(
         blank=True,
         null="",
     )
-    users = ForeignKey(
-        to=User,
+    user = ForeignKey(
+        to=CustomUser,
         on_delete=CASCADE,
         related_name="expenses",
     )
-    categories = ForeignKey(
+    category = ForeignKey(
         to=Category,
         on_delete=PROTECT,
         related_name="expenses",

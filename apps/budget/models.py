@@ -1,7 +1,11 @@
-from django.contrib.auth.models import User
+#Python modules
+
+# Django modules
 from django.db.models import CASCADE, DateField, DecimalField, ForeignKey
 
+# Project modules
 from apps.abstracts.models import AbstractBaseModel
+from apps.auths.models import CustomUser
 
 
 class Budget(AbstractBaseModel):
@@ -9,8 +13,8 @@ class Budget(AbstractBaseModel):
     Model representing a budget for a specific category and user.
     """
 
-    users = ForeignKey(
-        to=User,
+    user = ForeignKey(
+        to=CustomUser,
         on_delete=CASCADE,
         related_name="budgets",
     )
