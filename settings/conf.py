@@ -76,8 +76,8 @@ SIMPLE_JWT = {
 # DRF Spectacular
 #
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Djangorlar API',
-    'DESCRIPTION': 'Your project description',
+    'TITLE': 'Expense Tracker API',
+    'DESCRIPTION': 'API documentation for the Expense Tracker application.',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
