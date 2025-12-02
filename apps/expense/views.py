@@ -25,7 +25,6 @@ from apps.expense.serializers import (
     ExpenseListSerializer, 
     ExpenseCreateSerializer, 
     ExpenseUpdateSerializer,
-    HTTP405MethodNotAllowedSerializer,
     ExpenseBaseSerializer,
 )
 
@@ -37,7 +36,7 @@ class ExpenseViewSet(ViewSet):
         responses={
             HTTP_200_OK: ExpenseListSerializer(many=True),
             HTTP_405_METHOD_NOT_ALLOWED: OpenApiResponse(
-                response=HTTP405MethodNotAllowedSerializer,
+                response=HTTP_405_METHOD_NOT_ALLOWED,
                 description="Method not allowed."
             ),
         },
@@ -115,7 +114,7 @@ class ExpenseViewSet(ViewSet):
                 description="Bad request."
             ),
             HTTP_405_METHOD_NOT_ALLOWED: OpenApiResponse(
-                response=HTTP405MethodNotAllowedSerializer,
+                response=HTTP_405_METHOD_NOT_ALLOWED,
                 description="Method not allowed."
             ),
         },
@@ -163,7 +162,7 @@ class ExpenseViewSet(ViewSet):
                 description="Bad request."
             ),
             HTTP_405_METHOD_NOT_ALLOWED: OpenApiResponse(
-                response=HTTP405MethodNotAllowedSerializer,
+                response=HTTP_405_METHOD_NOT_ALLOWED,
                 description="Method not allowed."
             ),
         },
@@ -221,7 +220,7 @@ class ExpenseViewSet(ViewSet):
                 description="Bad request."
             ),
             HTTP_405_METHOD_NOT_ALLOWED: OpenApiResponse(
-                response=HTTP405MethodNotAllowedSerializer,
+                response=HTTP_405_METHOD_NOT_ALLOWED,
                 description="Method not allowed."
             ),
         },

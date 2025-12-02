@@ -32,6 +32,8 @@ class Expense(AbstractBaseModel):
         to=Category,
         on_delete=PROTECT,
         related_name="expenses",
+        null=True,
+        blank=True,
     )
     amount = DecimalField(
         max_digits=10,
