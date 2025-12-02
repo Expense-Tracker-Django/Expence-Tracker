@@ -13,6 +13,7 @@ class CategoryBaseSerializer(ModelSerializer):
 
         model = Category
         fields = "__all__"
+        read_only_fields=("user",)
 
 
 class CategoryListSerializer(CategoryBaseSerializer):
@@ -24,20 +25,19 @@ class CategoryCreateSerializer(CategoryBaseSerializer):
     """Serializer for creating Category instances"""
     name = CharField(max_length=Category.NAME_MAX_LENGTH)
 
-    def validate_name(self, value:str) -> str:
-        """Validate that the category name is unique."""
+    def validate_name(self, value: str) -> str:
+        """Validate that the category name is unique for this user."""
+        user = self.context["request"].user
 
-        if Category.objects.filter(name=value).exists():
-            raise ValidationError("Category with this name already exists.")
-        
+        if Category.objects.filter(user=user, name=value).exists():
+            raise ValidationError("You already have a category with this name.")
+
         return value
     
-    def create(self, validated_data:dict) -> Category:
-        """Create a new Category instance."""
-        user = self.context['request'].user
-        return Category.objects.create(
-            created_by=user, **validated_data
-        )
+    def create(self, validated_data):
+        user = self.context["request"].user
+        return Category.objects.create(user=user, **validated_data)
+
     
 
 class CategoryUpdateSerializer(CategoryBaseSerializer):
