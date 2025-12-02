@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(route="api/auths/", view=include("apps.auths.urls")),
     path(route="api/expense-tracker/", view=include("apps.category.urls")),
+    path(route="api/expense-tracker/", view=include("apps.expense.urls")),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
